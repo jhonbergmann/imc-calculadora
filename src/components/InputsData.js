@@ -16,11 +16,14 @@ export default function InputsData(props) {
   const [colorIconMan, setColorIconMan] = useState('#505d78')
   const [colorIconWoman, setColorIconWoman] = useState('#505d78')
 
+  const [colorTextphysicalActivitySedentary, setColorTextphysicalActivitySedentary] = useState('#505d78')
+  const [colorTextphysicalActivityPractitioner, setColorTextphysicalActivityPractitioner] = useState('#505d78')
+
   function selectedManSex() {
     if (colorIconMan === '#505d78') {
       setColorIconMan('#FFF'), props.setSex('Masculino')
     } else {
-      setColorIconMan('#505d78'), props.setSex('')
+      setColorIconMan('#505d78'), props.setSex(undefined)
     }
   }
 
@@ -28,7 +31,23 @@ export default function InputsData(props) {
     if (colorIconWoman === '#505d78') {
       setColorIconWoman('#FFF'), props.setSex('Feminino')
     } else {
-      setColorIconWoman('#505d78'), props.setSex('')
+      setColorIconWoman('#505d78'), props.setSex(undefined)
+    }
+  }
+
+  function selectedSedentary() {
+    if (colorTextphysicalActivitySedentary === '#505d78') {
+      setColorTextphysicalActivitySedentary('#FFF'), props.setPhysicalActivity('Sedentario')
+    } else {
+      setColorTextphysicalActivitySedentary('#505d78'), props.setPhysicalActivity(undefined)
+    }
+  }
+
+  function selectedPractitioner() {
+    if (colorTextphysicalActivityPractitioner === '#505d78') {
+      setColorTextphysicalActivityPractitioner('#FFF'), props.setPhysicalActivity('Praticante')
+    } else {
+      setColorTextphysicalActivityPractitioner('#505d78'), props.setPhysicalActivity(undefined)
     }
   }
 
@@ -37,9 +56,13 @@ export default function InputsData(props) {
     Alert.alert('Erro', 'Selecione apenas um sexo')
   }
 
+  if (colorTextphysicalActivitySedentary === '#FFF' && colorTextphysicalActivityPractitioner === '#FFF') {
+    setColorTextphysicalActivitySedentary('#505d78'), setColorTextphysicalActivityPractitioner('#505d78')
+    Alert.alert('Erro', 'Selecione apenas uma atividade')
+  }
+
   return (
     <View style={styles.container}>
-
       <Text style={styles.title}>Sexo</Text>
       <View style={styles.datasContainer}>
         <TouchableOpacity style={styles.sexButton} onPress={() => { selectedManSex() }}>
@@ -57,7 +80,6 @@ export default function InputsData(props) {
           />
         </TouchableOpacity>
       </View>
-
       <Text style={styles.title}>Idade</Text>
       <View style={styles.datasContainer}>
         <TextInput style={styles.input}
@@ -69,7 +91,6 @@ export default function InputsData(props) {
           <Text style={styles.textWhiteAlingCenter}>Anos</Text>
         </View>
       </View>
-
       <Text style={styles.title}>Altura</Text>
       <View style={styles.datasContainer}>
         <TextInput style={styles.input}
@@ -81,7 +102,6 @@ export default function InputsData(props) {
           <Text style={styles.textWhiteAlingCenter}>M</Text>
         </View>
       </View>
-
       <Text style={styles.title}>Peso</Text>
       <View style={styles.datasContainer}>
         <TextInput style={styles.input}
@@ -93,11 +113,18 @@ export default function InputsData(props) {
           <Text style={styles.textWhiteAlingCenter}>Kg</Text>
         </View>
       </View>
-
+      <Text style={styles.title}>Atividade Física</Text>
+      <View style={styles.datasContainer}>
+        <TouchableOpacity style={styles.physicalActivityButton} onPress={() => { selectedSedentary() }}>
+          <Text style={[styles.textWhiteAlingCenter, { color: colorTextphysicalActivitySedentary }]}>Sedentário(a)</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.physicalActivityButton} onPress={() => { selectedPractitioner() }}>
+          <Text style={[styles.textWhiteAlingCenter, { color: colorTextphysicalActivityPractitioner }]}>Praticante</Text>
+        </TouchableOpacity>
+      </View>
       <TouchableOpacity style={styles.calcButton} onPress={props.onClick}>
         <Text style={styles.textWhiteAlingCenter}>Calcular</Text>
       </TouchableOpacity>
-
     </View >
   )
 }
@@ -107,7 +134,7 @@ const styles = StyleSheet.create({
     flex: 1,
     width: '90%',
     alignItems: 'center',
-    marginTop: '20%'
+    marginTop: '25%'
   },
   title: {
     width: '90%',
@@ -145,6 +172,14 @@ const styles = StyleSheet.create({
   textWhiteAlingCenter: {
     textAlign: 'center',
     color: '#FFF'
+  },
+  physicalActivityButton: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'rgba(255, 255, 255, 0.3)',
+    width: '45%',
+    height: '80%',
+    borderRadius: 10
   },
   calcButton: {
     alignItems: 'center',
