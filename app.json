@@ -1,0 +1,12 @@
+{
+  "name": "imc-calculadora",
+  "displayName": "imc-calculadora",
+  "expo": {
+    "name": "imc-calculadora",
+    "slug": "expo-template-bare",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
