@@ -1,34 +1,43 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
   View,
   Text,
   TouchableOpacity,
-  StyleSheet
+  StyleSheet,
+  Alert
 } from 'react-native'
 
 import IconBars from 'react-native-vector-icons/AntDesign'
 import IconHeart from 'react-native-vector-icons/AntDesign'
 
+import ModalInfoBMI from '../components/ModalInfoBMI'
+
 export default function Header() {
+
+  const [modalVisibleInfoBmi, setModalVisibleInfoBmi] = useState(false)
+
   return (
     <View style={styles.container}>
       <View>
         <Text style={styles.title}>IMC Calculadora</Text>
       </View>
       <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-        <TouchableOpacity onPress={() => { }}>
+        <TouchableOpacity onPress={() => { Alert.alert('Clicou') }}>
           <IconHeart style={{ paddingHorizontal: 10 }}
             name='heart'
             size={20}
             color='#FFF'
           />
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => { }}>
+        <TouchableOpacity onPress={() => { setModalVisibleInfoBmi(true) }}>
           <IconBars
-            name='bars'
-            size={25}
+            name='infocirlce'
+            size={20}
             color='#FFF'
           />
+          <ModalInfoBMI
+            modalVisibleInfoBmi={modalVisibleInfoBmi}
+            onClickCloseModal={() => setModalVisibleInfoBmi(!modalVisibleInfoBmi)} />
         </TouchableOpacity>
       </View>
     </View>

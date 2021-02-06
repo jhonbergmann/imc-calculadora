@@ -11,7 +11,7 @@ import { setStatusBarHidden } from 'expo-status-bar'
 import BackgroundLinearGradient from './src/components/BackgroundLinearGradient'
 import Header from './src/components/Header'
 import InputsData from './src/components/InputsData'
-import ModalImc from './src/components/ModalImc'
+import ModalBMI from './src/components/ModalBMI'
 import ModalDetails from './src/components/ModalDetails'
 
 export default function App() {
@@ -22,15 +22,15 @@ export default function App() {
   const [weight, setWeight] = useState(undefined)
   const [physicalActivity, setPhysicalActivity] = useState(undefined)
 
-  const [imc, setImc] = useState(undefined)
+  const [bmi, setBmi] = useState(undefined)
   const [detail, setDetail] = useState(undefined)
 
-  const [modalVisibleImc, setModalVisibleImc] = useState(false)
+  const [modalVisibleBmi, setModalVisibleBmi] = useState(false)
   const [modalVisibleDetail, setModalVisibleDetail] = useState(false)
 
   function clickCalcButton() {
     if (sex !== undefined && age > 0 && heigth > 0 && weight > 0 && physicalActivity !== undefined) {
-      showImc()
+      showBmi()
     } else {
       Alert.alert(
         'Erro',
@@ -49,30 +49,30 @@ export default function App() {
     setWeight(undefined)
   }
 
-  function showImc() {
-    setImc(parseInt(weight / (heigth * heigth)))
-    setModalVisibleImc(true)
+  function showBmi() {
+    setBmi(parseInt(weight / (heigth * heigth)))
+    setModalVisibleBmi(true)
   }
 
   function showDetails() {
-    if (imc < 18.5) {
-      setDetail(`Sinto muito, mas o seu IMC é de ${imc} kg/m2. 
+    if (bmi < 18.5) {
+      setDetail(`Sinto muito, mas o seu IMC é de ${bmi} kg/m2. 
         Você precisa ganhar um pouco mais de massa para atingir o seu peso ideal`)
     }
-    if (imc >= 18.5) {
-      setDetail(`Parabéns, seu IMC é de ${imc} kg/m2 
+    if (bmi >= 18.5) {
+      setDetail(`Parabéns, seu IMC é de ${bmi} kg/m2 
         e você está dentro do peso adequado!`)
     }
-    if (imc >= 24.9) {
-      setDetail(`Sinto muito, mas o seu IMC é de ${imc} kg/m2, 
+    if (bmi >= 24.9) {
+      setDetail(`Sinto muito, mas o seu IMC é de ${bmi} kg/m2, 
         por isso você está acima do peso e deveria emagrecer um pouco para atingir o seu peso ideal.`)
     }
-    if (imc > 30) {
-      setDetail(`Sinto muito, mas o seu IMC é de ${imc} kg/m2 
+    if (bmi > 30) {
+      setDetail(`Sinto muito, mas o seu IMC é de ${bmi} kg/m2 
         por isso você está acima do peso e deveria emagrecer para atingir o seu peso ideal.`)
     }
     setModalVisibleDetail(true)
-    setModalVisibleImc(false)
+    setModalVisibleBmi(false)
   }
 
   setStatusBarHidden(true) /* STATUS BAR HIDDEN */
@@ -88,10 +88,10 @@ export default function App() {
         setHeigth={setHeigth}
         setWeight={setWeight}
         setPhysicalActivity={setPhysicalActivity} />
-      <ModalImc
-        imc={imc}
-        modalVisibleImc={modalVisibleImc}
-        onClickCloseModal={() => setModalVisibleImc(!modalVisibleImc)}
+      <ModalBMI
+        bmi={bmi}
+        modalVisibleBmi={modalVisibleBmi}
+        onClickCloseModal={() => setModalVisibleBmi(!modalVisibleBmi)}
         onClickOpenModalDetaills={() => showDetails()} />
       <ModalDetails
         detail={detail}

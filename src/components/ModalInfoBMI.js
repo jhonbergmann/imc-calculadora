@@ -10,29 +10,35 @@ import {
 
 import IconClose from 'react-native-vector-icons/AntDesign'
 
-import LottieViewImc from '../components/LottieViewImc'
-
-export default function ModalImc(props) {
+export default function ModalInfoBMI(props) {
   return (
     <View style={styles.centeredView}>
       <Modal
         animationType='slide'
         transparent={true}
-        visible={props.modalVisibleImc}
+        visible={props.modalVisibleInfoBmi}
         onRequestClose={() => {
           Alert.alert('Clique em fechar.')
         }}>
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
-            <Text style={styles.modalTextTitle}>IMC</Text>
-            <Text style={styles.modalText}>Seu IMC é {props.imc}</Text>
-            <LottieViewImc />
-            <TouchableOpacity style={styles.butonToModalDetails}
-              onPress={props.onClickOpenModalDetaills}>
-              <Text style={{ color: '#FFF' }}>
-                Ver Detalhes
-              </Text>
-            </TouchableOpacity>
+            <Text style={styles.modalTextTitle}>INDICAÇÕES</Text>
+            <Text style={[styles.modalTextTitleContent, { backgroundColor: '#b8131d' }]}>Magreza</Text>
+            <Text style={styles.modalText}>
+              Quando o resultado é menor que 18,5 kg/m2.
+            </Text>
+            <Text style={[styles.modalTextTitleContent, { backgroundColor: '#3b5998' }]}>Normal</Text>
+            <Text style={styles.modalText}>
+              Quando o resultado está entre 18,5 e 24,9 kg/m2.
+            </Text>
+            <Text style={[styles.modalTextTitleContent, { backgroundColor: '#fed402' }]}>Sobrepeso</Text>
+            <Text style={styles.modalText}>
+              Quando o resultado está entre 24,9 e 30 kg/m2.
+            </Text>
+            <Text style={[styles.modalTextTitleContent, { backgroundColor: '#b8131d' }]}>Obesidade</Text>
+            <Text style={styles.modalText}>
+              Quando o resultado é maior que 30 kg/m2.
+            </Text>
             <TouchableOpacity style={styles.closeButton}
               onPress={props.onClickCloseModal}>
               <IconClose
@@ -58,18 +64,13 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(255,255,255, 0.9)',
     borderTopStartRadius: 50,
     width: '100%',
-    height: '40%',
+    height: '90%',
     alignItems: 'center'
   },
   closeButton: {
     position: 'absolute',
     top: 20,
     right: 20
-  },
-  textStyle: {
-    color: '#FFF',
-    fontWeight: 'bold',
-    textAlign: 'center'
   },
   modalTextTitle: {
     marginTop: 20,
@@ -78,16 +79,22 @@ const styles = StyleSheet.create({
     fontWeight: 'bold'
   },
   modalText: {
-    fontSize: 25,
+    fontSize: 16,
+    width: '90%',
+    marginBottom: 15,
     textAlign: 'center'
   },
-  butonToModalDetails: {
+  modalTextTitleContent: {
     alignItems: 'center',
     justifyContent: 'center',
-    marginBottom: 10,
-    height: 50,
-    width: 120,
+    flexGrow: 1,
+    margin: 5,
+    padding: 20,
+    width: '70%',
+    height: '5%',
     borderRadius: 10,
-    backgroundColor: '#3b5998'
+    textAlign: 'center',
+    color: '#FFF',
+    fontWeight: 'bold'
   }
 })

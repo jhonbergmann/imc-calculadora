@@ -7,7 +7,7 @@ import LottieView from 'lottie-react-native'
 
 import JSON from '../lottie-view/5797-weight-measure-machine-icon-animation.json'
 
-export default function LottieViewImc() {
+export default function LottieViewBMI() {
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <LottieView
