@@ -14,7 +14,7 @@ export default function ModalDetails(props) {
   return (
     <View style={styles.centeredView}>
       <Modal
-        animationType="slide"
+        animationType='slide'
         transparent={true}
         visible={props.modalVisibleDetail}
         onRequestClose={() => {
@@ -23,7 +23,15 @@ export default function ModalDetails(props) {
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
             <Text style={styles.modalTextTitle}>DETALHES</Text>
-            <Text style={styles.modalText}>{props.detail}</Text>
+            <Text style={[styles.modalText, { fontWeight: 'bold' }]}>{props.detail}</Text>
+            <Text style={styles.modalText}>
+              O IMC é a relação entre peso e altura e o cálculo é feito de acordo com a fórmula:
+            </Text>
+            <Text style={styles.modalText}>
+              IMC = peso/ (altura x altura), devendo o peso estar em kg e a altura em metro,
+              e o resultado é dado em kg/m2. Depois de obter o resultado, é verificado em que faixa
+              o resultado se encontra, podendo indicar: Magreza, Normal, Sobrepeso e Obesidade.
+            </Text>
             <TouchableOpacity style={styles.closeButton}
               onPress={props.onClickCloseModal}>
               <IconClose
@@ -36,7 +44,6 @@ export default function ModalDetails(props) {
         </View>
       </Modal>
     </View>
-
   )
 }
 
@@ -50,7 +57,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(255,255,255, 0.9)',
     borderTopStartRadius: 50,
     width: '100%',
-    height: '75%',
+    height: '70%',
     alignItems: 'center'
   },
   closeButton: {
@@ -60,8 +67,8 @@ const styles = StyleSheet.create({
   },
   textStyle: {
     color: '#FFF',
-    fontWeight: "bold",
-    textAlign: "center"
+    fontWeight: 'bold',
+    textAlign: 'center'
   },
   modalTextTitle: {
     marginTop: 20,
@@ -73,6 +80,6 @@ const styles = StyleSheet.create({
     fontSize: 18,
     width: '90%',
     marginBottom: 15,
-    textAlign: "center"
+    textAlign: 'center'
   }
 })

@@ -57,19 +57,19 @@ export default function App() {
   function showDetails() {
     if (imc < 18.5) {
       setDetail(`Sinto muito, mas o seu IMC é de ${imc} kg/m2. 
-       Você precisa ganhar um pouco mais de massa para atingir o seu peso ideal`)
+        Você precisa ganhar um pouco mais de massa para atingir o seu peso ideal`)
     }
     if (imc >= 18.5) {
       setDetail(`Parabéns, seu IMC é de ${imc} kg/m2 
-      e você está dentro do peso adequado!`)
+        e você está dentro do peso adequado!`)
     }
     if (imc >= 24.9) {
       setDetail(`Sinto muito, mas o seu IMC é de ${imc} kg/m2, 
-      por isso você está acima do peso e deveria emagrecer um pouco para atingir o seu peso ideal.`)
+        por isso você está acima do peso e deveria emagrecer um pouco para atingir o seu peso ideal.`)
     }
     if (imc > 30) {
       setDetail(`Sinto muito, mas o seu IMC é de ${imc} kg/m2 
-      por isso você está acima do peso e deveria emagrecer para atingir o seu peso ideal.`)
+        por isso você está acima do peso e deveria emagrecer para atingir o seu peso ideal.`)
     }
     setModalVisibleDetail(true)
     setModalVisibleImc(false)
@@ -77,44 +77,26 @@ export default function App() {
 
   setStatusBarHidden(true) /* STATUS BAR HIDDEN */
 
-  /* delete */
-  console.log(sex)
-  console.log(age)
-  console.log(heigth)
-  console.log(weight)
-  console.log(imc)
-  console.log(detail)
-  console.log(physicalActivity)
-
   return (
     <View style={styles.container}>
-
       <BackgroundLinearGradient />
-
       <Header />
-
       <InputsData
         onClick={() => clickCalcButton()}
         setSex={setSex}
         setAge={setAge}
         setHeigth={setHeigth}
         setWeight={setWeight}
-        setPhysicalActivity={setPhysicalActivity}
-      />
-
+        setPhysicalActivity={setPhysicalActivity} />
       <ModalImc
         imc={imc}
         modalVisibleImc={modalVisibleImc}
         onClickCloseModal={() => setModalVisibleImc(!modalVisibleImc)}
-        onClickOpenModalDetaills={() => showDetails()}
-      />
-
+        onClickOpenModalDetaills={() => showDetails()} />
       <ModalDetails
         detail={detail}
         modalVisibleDetail={modalVisibleDetail}
-        onClickCloseModal={() => setModalVisibleDetail(!modalVisibleDetail)}
-      />
-
+        onClickCloseModal={() => setModalVisibleDetail(!modalVisibleDetail)} />
     </View>
   )
 }

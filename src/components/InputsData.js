@@ -94,7 +94,7 @@ export default function InputsData(props) {
       <Text style={styles.title}>Altura</Text>
       <View style={styles.datasContainer}>
         <TextInput style={styles.input}
-          placeholder='1,80'
+          placeholder='1.80'
           keyboardType='numeric'
           onChangeText={text => props.setHeigth(text)}
         />
@@ -105,7 +105,7 @@ export default function InputsData(props) {
       <Text style={styles.title}>Peso</Text>
       <View style={styles.datasContainer}>
         <TextInput style={styles.input}
-          placeholder='75,5'
+          placeholder='75.5'
           keyboardType='numeric'
           onChangeText={text => props.setWeight(text)}
         />

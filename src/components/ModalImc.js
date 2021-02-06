@@ -10,11 +10,13 @@ import {
 
 import IconClose from 'react-native-vector-icons/AntDesign'
 
+import LottieViewImc from '../components/LottieViewImc'
+
 export default function ModalImc(props) {
   return (
     <View style={styles.centeredView}>
       <Modal
-        animationType="slide"
+        animationType='slide'
         transparent={true}
         visible={props.modalVisibleImc}
         onRequestClose={() => {
@@ -24,6 +26,7 @@ export default function ModalImc(props) {
           <View style={styles.modalView}>
             <Text style={styles.modalTextTitle}>IMC</Text>
             <Text style={styles.modalText}>Seu IMC é {props.imc}</Text>
+            <LottieViewImc />
             <TouchableOpacity style={styles.butonToModalDetails}
               onPress={props.onClickOpenModalDetaills}>
               <Text style={{ color: '#FFF' }}>
@@ -42,7 +45,6 @@ export default function ModalImc(props) {
         </View>
       </Modal>
     </View>
-
   )
 }
 
@@ -66,8 +68,8 @@ const styles = StyleSheet.create({
   },
   textStyle: {
     color: '#FFF',
-    fontWeight: "bold",
-    textAlign: "center"
+    fontWeight: 'bold',
+    textAlign: 'center'
   },
   modalTextTitle: {
     marginTop: 20,
@@ -77,13 +79,12 @@ const styles = StyleSheet.create({
   },
   modalText: {
     fontSize: 25,
-    marginBottom: 15,
-    textAlign: "center"
+    textAlign: 'center'
   },
   butonToModalDetails: {
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: 20,
+    marginBottom: 10,
     height: 50,
     width: 120,
     borderRadius: 10,
