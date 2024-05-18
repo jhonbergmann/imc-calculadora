@@ -30,9 +30,6 @@ App calculadora de IMC. Com esta calculadora do IMC você pode calcular e avalia
 ## 🛠 Tecnologias
 - [React Native](https://facebook.github.io/react-native/)
 - [Javascript](https://devdocs.io/javascript/)
-- [Node](https://nodejs.org/en/)
-
-*Foram usados outros Frameworks no projeto, mas esses são os principais.*
 
 ## 📱 Executando 
 
@@ -41,7 +38,7 @@ Para executar o projeto é necessário que você tenha o ambiente React Native c
 Depois de configurar o ambiente, basta fazer o clone do projeto:
 
 ```sh
-git clone https://github.com/JhonatanBergmann/imc-calculadora
+git clone https://github.com/jhonbergmann/imc-calculadora
 ```
 
 Entre na pasta do projeto e execute o comando para instalar as dependências do projeto:
@@ -61,10 +58,6 @@ Android:
 ```sh
 react-native run-android
 ```
-
-## 📝 Licença
-
-Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
 ---
 
